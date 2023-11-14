@@ -45,36 +45,40 @@ public class TouchJudgement : MonoBehaviour
         if (hit2D)
         {
             float distance = Mathf.Abs(hit2D.transform.position.y - transform.position.y);
-            if (distance < 8)
+
+            if (hit2D.collider.CompareTag("Note"))
             {
-                Debug.Log("perfect");
-                gameManager.AddScore(1000);
-                noteJudge.text = "perfect";
-                gameManager.AddComboPerfect(1);
-                gameManager.AddCombo(1);
-                SpawnEffect(hit2D.transform.position);
+                if (distance < 8)
+                {
+                    Debug.Log("perfect");
+                    gameManager.AddScore(1000);
+                    noteJudge.text = "perfect";
+                    gameManager.AddComboPerfect(1);
+                    gameManager.AddCombo(1);
+                    SpawnEffect(hit2D.transform.position);
+                }
+                else if (distance < 16)
+                {
+                    Debug.Log("great");
+                    gameManager.AddScore(100);
+                    noteJudge.text = "great";
+                    gameManager.AddComboGreat(1);
+                    gameManager.AddCombo(1);
+                    SpawnEffect(hit2D.transform.position);
+                }
+                else
+                {
+                    Debug.Log("bad");
+                    gameManager.AddScore(10);
+                    noteJudge.text = "bad";
+                    gameManager.AddComboBad(1);
+                    gameManager.ResetCombo();
+                    comboText.text = "0";
+                    SpawnEffect(hit2D.transform.position);
+                }
+                //‚Ô‚Â‚©‚Á‚½‚à‚Ì‚ð”j‰ó‚·‚é
+                Destroy(hit2D.collider.gameObject);
             }
-            else if (distance < 16)
-            {
-                Debug.Log("great");
-                gameManager.AddScore(100);
-                noteJudge.text = "great";
-                gameManager.AddComboGreat(1);
-                gameManager.AddCombo(1);
-                SpawnEffect(hit2D.transform.position);
-            }
-            else
-            {
-                Debug.Log("bad");
-                gameManager.AddScore(10);
-                noteJudge.text = "bad";
-                gameManager.AddComboBad(1);
-                gameManager.ResetCombo();
-                comboText.text = "0";
-                SpawnEffect(hit2D.transform.position);
-            }
-            //‚Ô‚Â‚©‚Á‚½‚à‚Ì‚ð”j‰ó‚·‚é
-            Destroy(hit2D.collider.gameObject);
         }
 
         RaycastHit2D hit2Ds = Physics2D.CircleCast(transform.position, radius, Vector3.zero);

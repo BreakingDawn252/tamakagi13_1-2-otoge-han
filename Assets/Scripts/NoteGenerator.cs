@@ -14,6 +14,7 @@ public class NoteGenerator : MonoBehaviour
         GameObject randomPoint = spawnpoint[Random.Range(0, spawnpoint.Length)];
         //Instantiate(生成したいもの,場所,角度）;
         Instantiate(notePrefab, randomPoint.transform.position, Quaternion.identity);
+        Debug.Log("ノーツが出たよ");
     }
 }
  

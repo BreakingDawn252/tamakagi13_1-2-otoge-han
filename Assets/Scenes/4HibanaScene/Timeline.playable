@@ -149,7 +149,58 @@ MonoBehaviour:
   m_Markers:
     m_Objects: []
   template:
-    controls: []
+    controls:
+    - enabled: 1
+      mode: 0
+      noteFilter:
+        note: 0
+        octave: 0
+      envelope:
+        attack: 0
+        decay: 1
+        sustain: 0.5
+        release: 1
+      curve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 90
+          outSlope: 90
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.02
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.5
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      ccNumber: 1
+      targetComponent:
+        exposedName: 
+        defaultValue: {fileID: 0}
+      propertyName: 
+      fieldName: 
+      vector0: {x: 0, y: 0, z: 0, w: 0}
+      vector1: {x: 1, y: 1, z: 1, w: 0}
 --- !u!114 &4782017859609523404
 MonoBehaviour:
   m_ObjectHideFlags: 1
